@@ -1,0 +1,33 @@
+Ans to the quetion #1:
+In order to upgrade the rails version usually we need to go through some steps. Those
+steps are critical and first of all we need to make sure that we have valid reasons behind upgrading to a newer version.
+However, rails already provided us with a document regarding upgrading the rails version.
+The document can be found at https://guides.rubyonrails.org/upgrading_ruby_on_rails.html
+The steps and procedures are listed below briefly:
+1. First we need to upgrade the Ruby version because rails' newer versions are compatible with updated ruby versions.
+2. Next we upgrade the rails version slowly. Slowly means we need to move forward with minor versions and patches.
+Need to change the rails version in Gemfile, run bundle update, run app update and finally run our test codes.
+If test codes fail due to issues, they need to be resolved. However, we need to repeat these steps until we get to the targeted version.
+3. Upgrading to version 5.2 to 5.1 may not require a lot of changes but upgrading to 6.0 from 5.2 require some changes
+in the project file structure as well as some configurations. Changes related to framework and configuration are listed
+in the above rails guide and I am pretty much sure we need to make sure that all of them are addressed properly.
+
+* 5 Upgrading from Rails 5.1 to Rails 5.2
+* 4 Upgrading from Rails 5.2 to Rails 6.0 (From Rails guide)
+
+If we can ensure good test coverage, we can quickly meet the deadline.
+--------------------------------------------------------------------------------
+
+
+
+Ans to the question #2:
+In a typical rails application, if jQuery is attached, then we can do the following:
+1. Define Ajax block and need to mention the "dataType" as either script/json/html.
+2. Based on the "dataType" (script/html), a file needs to be added (e.g., app/views/users/list_users.js.erb) to the view path to be responded back
+and rendered properly at the Ajax block end.
+
+Other than this, for simple JS action we can add "remote: true" attribute in the link_to erb.
+Additionally, rails provide turbolink feature to speed up the JS rendering process.
+
+The above techniques are the core concept and rails convention to render the data into the page without loading.
+However, some newer JS technologies emerged such as VueJs, ReactJs and they provide some fantastic libraries to render data with ease.

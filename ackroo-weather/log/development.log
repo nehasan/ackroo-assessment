@@ -1,0 +1,355 @@
+  [1m[35m (458.7ms)[0m  [1m[35mCREATE DATABASE "ackroo_weather_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "ackroo_weather_development" ENCODING = 'unicode'[0m
+  [1m[35m (264.9ms)[0m  [1m[35mCREATE DATABASE "ackroo_weather_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7996808063929557285)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWeathers (20220203025033)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7996808063929557285)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7996808063929557285)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWeathers (20220203025033)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (38.6ms)[0m  [1m[35mCREATE TABLE "weathers" ("id" bigserial primary key, "time" timestamp, "air_temp" character varying, "pressure" character varying, "humidity" character varying, "precipitation" character varying, "wind_speed" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220203025033"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-02-03 04:08:16.096963"], ["updated_at", "2022-02-03 04:08:16.096963"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7996808063929557285)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-02-03 15:19:15 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.9ms | Allocations: 333)
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 2418)
+
+
+Started GET "/" for ::1 at 2022-02-03 15:20:09 -0500
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:9:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-02-03 15:20:31 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (1.1ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1702)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1766)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 5.5ms | Allocations: 7493)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    17:   </tr>
+    18:   </thead>
+    19:   <tbody>
+    20:   <% if @data[:weather].present? %>
+    21:     <% @data[:weather].each do |w| %>
+    22:       <tr>
+    23:         <td><%= w['time'] %></td>
+  
+app/views/weathers/latest.html.erb:20
+Started GET "/" for ::1 at 2022-02-03 15:26:56 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.9ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 72348.4ms | Allocations: 61255)
+  Rendered layout layouts/application.html.erb (Duration: 72349.2ms | Allocations: 61343)
+Completed 500 Internal Server Error in 72383ms (ActiveRecord: 10.3ms | Allocations: 69388)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    18:   </thead>
+    19:   <tbody>
+    20:   <% byebug %>
+    21:   <% if @data[:weather].present? %>
+    22:     <% @data[:weather].each do |w| %>
+    23:       <tr>
+    24:         <td><%= w['time'] %></td>
+  
+app/views/weathers/latest.html.erb:21
+Started GET "/" for ::1 at 2022-02-03 15:30:30 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (1.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1699)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1764)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 4.4ms | Allocations: 6887)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    18:   </thead>
+    19:   <tbody>
+    20:   
+    21:   <% if @data[:weather].present? %>
+    22:     <% @data[:weather].each do |w| %>
+    23:       <tr>
+    24:         <td><%= w['time'] %></td>
+  
+app/views/weathers/latest.html.erb:21
+Started GET "/" for ::1 at 2022-02-03 15:31:07 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.8ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1692)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1756)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 3.8ms | Allocations: 6860)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    18:   </thead>
+    19:   <tbody>
+    20: 
+    21:   <% if @data[:weather].present? %>
+    22:     <% @data[:weather].each do |w| %>
+    23:       <tr>
+    24:         <td><%= w['time'] %></td>
+  
+app/views/weathers/latest.html.erb:21
+Started GET "/" for ::1 at 2022-02-03 15:31:31 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.8ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+--- HERE: #<ActionController::Parameters {"controller"=>"weathers", "action"=>"latest"} permitted: false>
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/weathers_controller.rb:24:in `fetch_weather_data'
+  [1m[36mWeather Create (2.0ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:31:40.548502"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 20:31:40.583035"], ["updated_at", "2022-02-03 20:31:40.583035"]]
+  ↳ app/controllers/weathers_controller.rb:24:in `fetch_weather_data'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/weathers_controller.rb:24:in `fetch_weather_data'
+  [1m[36mWeather Load (1.1ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:9:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3235)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3299)
+Completed 500 Internal Server Error in 9349ms (ActiveRecord: 22.4ms | Allocations: 15238)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Weather:0x00007f102d8608c8>):
+    19:   <tbody>
+    20: 
+    21:   <% if @data[:weather].present? %>
+    22:     <% @data[:weather].each do |w| %>
+    23:       <tr>
+    24:         <td><%= w['time'] %></td>
+    25:         <td><%= w['air_temp'] %></td>
+  
+app/views/weathers/latest.html.erb:22
+Started GET "/" for ::1 at 2022-02-03 15:33:33 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (2.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1687)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1751)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.2ms | Allocations: 6301)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    18:   </thead>
+    19:   <tbody>
+    20: 
+    21:   <% if @data[:weather].present? %>
+    22:     <%# @data[:weather].each do |w| %>
+    23:       <tr>
+    24:         <td><%= @data[:weather]['time'] %></td>
+  
+app/views/weathers/latest.html.erb:21
+Started GET "/" for ::1 at 2022-02-03 16:24:14 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (1.0ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:4:in `latest'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mWeather Create (1.1ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:24:14.966735"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 21:24:14.967196"], ["updated_at", "2022-02-03 21:24:14.967196"]]
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.7ms | Allocations: 479)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/nahid/Projects/RAILS/ackroo-weather/public/packs
+[Webpacker] Hash: 2034dd941d5476d8645c
+Version: webpack 4.46.0
+Time: 471ms
+Built at: 02/03/2022 4:24:16 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3dd0dc24d9c39bc09227.js    125 KiB  application  [emitted] [immutable]  application
+js/application-3dd0dc24d9c39bc09227.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3dd0dc24d9c39bc09227.js js/application-3dd0dc24d9c39bc09227.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1408.4ms | Allocations: 16219)
+Completed 200 OK in 1441ms (Views: 1410.1ms | ActiveRecord: 10.3ms | Allocations: 27728)
+
+
+Started GET "/" for ::1 at 2022-02-03 16:31:41 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.9ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mWeather Create (1.1ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:31:41.899855"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 21:31:41.900222"], ["updated_at", "2022-02-03 21:31:41.900222"]]
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.9ms | Allocations: 479)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 64bd4b84e64cd0987ec6
+Version: webpack 4.46.0
+Time: 2602ms
+Built at: 02/03/2022 4:31:45 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-27016315a08cae849209.js   1.03 MiB  application  [emitted] [immutable]  application
+js/application-27016315a08cae849209.js.map   1.11 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-27016315a08cae849209.js js/application-27016315a08cae849209.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 569 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 8 hidden modules
+
+ERROR in ./node_modules/bootstrap/dist/js/bootstrap.js
+Module not found: Error: Can't resolve '@popperjs/core' in '/home/nahid/Projects/RAILS/ackroo-weather/node_modules/bootstrap/dist/js'
+ @ ./node_modules/bootstrap/dist/js/bootstrap.js 59:141-166 59:215-250
+ @ ./app/javascript/packs/application.js
+
+  Rendered layout layouts/application.html.erb (Duration: 3534.1ms | Allocations: 6673)
+Completed 200 OK in 3565ms (Views: 3536.0ms | ActiveRecord: 9.8ms | Allocations: 18332)
+
+
+Started GET "/" for ::1 at 2022-02-03 16:32:55 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.9ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mWeather Create (1.1ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:32:55.167276"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 21:32:55.167702"], ["updated_at", "2022-02-03 21:32:55.167702"]]
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.7ms | Allocations: 479)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/nahid/Projects/RAILS/ackroo-weather/public/packs
+[Webpacker] Hash: c659cb5fda9b3f9a9191
+Version: webpack 4.46.0
+Time: 2093ms
+Built at: 02/03/2022 4:32:58 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-8bc1b995a70f5de79fa9.js   1.19 MiB  application  [emitted] [immutable]  application
+js/application-8bc1b995a70f5de79fa9.js.map    1.2 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-8bc1b995a70f5de79fa9.js js/application-8bc1b995a70f5de79fa9.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 569 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 66 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 3034.7ms | Allocations: 6751)
+Completed 200 OK in 3066ms (Views: 3036.3ms | ActiveRecord: 9.1ms | Allocations: 18318)
+
+
+Started GET "/" for ::1 at 2022-02-03 16:34:07 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (2.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mWeather Create (1.8ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:34:07.081349"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 21:34:07.081771"], ["updated_at", "2022-02-03 21:34:07.081771"]]
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  [1m[36mTRANSACTION (35.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/weather_service.rb:9:in `fetch_data'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.1ms | Allocations: 361)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3497)
+Completed 200 OK in 64ms (Views: 9.2ms | ActiveRecord: 41.5ms | Allocations: 7643)
+
+
+Started GET "/" for ::1 at 2022-02-03 16:36:04 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (1.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1678)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1743)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 6.3ms | Allocations: 10227)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    19:     </thead>
+    20:     <tbody>
+    21: 
+    22:     <% if @data[:weather].present? %>
+    23:       <%# @data[:weather].each do |w| %>
+    24:       <tr>
+    25:         <td><%= @data[:weather]['time'] %></td>
+  
+app/views/weathers/latest.html.erb:22
+Started GET "/" for ::1 at 2022-02-03 16:37:21 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.8ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  [1m[36mCACHE Weather Load (0.0ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:14:in `rescue in latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.2ms | Allocations: 78)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3110)
+Completed 200 OK in 27ms (Views: 4.7ms | ActiveRecord: 5.4ms | Allocations: 12434)
+
+
+Started GET "/" for ::1 at 2022-02-03 16:38:09 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.9ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:3:in `latest'
+  [1m[36mCACHE Weather Load (0.0ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/weathers_controller.rb:14:in `rescue in latest'
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.2ms | Allocations: 68)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2971)
+Completed 200 OK in 22ms (Views: 5.0ms | ActiveRecord: 6.1ms | Allocations: 9702)
+
+

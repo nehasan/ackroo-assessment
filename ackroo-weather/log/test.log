@@ -1,0 +1,522 @@
+  [1m[35m (114.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ackroo_weather_test"[0m
+  [1m[35m (257.6ms)[0m  [1m[35mCREATE DATABASE "ackroo_weather_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "weathers" CASCADE[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "weathers" ("id" bigserial primary key, "time" timestamp, "air_temp" character varying, "pressure" character varying, "humidity" character varying, "precipitation" character varying, "wind_speed" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220203025033)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-02-03 04:09:01.015129"], ["updated_at", "2022-02-03 04:09:01.015129"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "68883cec094b424c8428b599404ef15ea57c15b8"], ["created_at", "2022-02-03 04:09:01.019508"], ["updated_at", "2022-02-03 04:09:01.019508"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weather/index" for 127.0.0.1 at 2022-02-02 23:33:31 -0500
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weather/index" for 127.0.0.1 at 2022-02-02 23:41:56 -0500
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weather/index" for 127.0.0.1 at 2022-02-02 23:43:13 -0500
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/index" for 127.0.0.1 at 2022-02-02 23:44:29 -0500
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-02 23:46:41 -0500
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-02 23:49:38 -0500
+Processing by WeathersController#latest as HTML
+Completed 406 Not Acceptable in 7ms (ActiveRecord: 0.0ms | Allocations: 2807)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-02 23:58:01 -0500
+Processing by WeathersController#latest as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 2.4ms | Allocations: 276)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 9530)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.0ms | Allocations: 12621)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 00:00:01 -0500
+Processing by WeathersController#latest as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.3ms | Allocations: 164)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/nahid/Projects/RAILS/ackroo-weather/public/packs-test
+[Webpacker] Hash: 06ffea8f80eba37a8f5d
+Version: webpack 4.46.0
+Time: 1179ms
+Built at: 02/03/2022 12:00:04 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-236c93cd287ecec692cf.js    125 KiB  application  [emitted] [immutable]  application
+js/application-236c93cd287ecec692cf.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  384 bytes               [emitted]              
+Entrypoint application = js/application-236c93cd287ecec692cf.js js/application-236c93cd287ecec692cf.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2232.7ms | Allocations: 8379)
+Completed 200 OK in 2239ms (Views: 2234.0ms | ActiveRecord: 0.0ms | Allocations: 10842)
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 06:20:48 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1374)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 3.0ms | Allocations: 9146)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 06:23:27 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1330)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1368)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.8ms | Allocations: 9140)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 06:30:21 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1334)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1372)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.8ms | Allocations: 9144)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 10:18:09 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1334)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1372)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.9ms | Allocations: 9144)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 15:22:20.018732"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 15:22:20.024921"], ["updated_at", "2022-02-03 15:22:20.024921"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 10:22:20 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1329)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1367)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms | Allocations: 6515)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 15:26:11.414345"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 15:26:11.420824"], ["updated_at", "2022-02-03 15:26:11.420824"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 15:27:47.337822"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 15:27:47.344336"], ["updated_at", "2022-02-03 15:27:47.344336"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 15:40:55.611144"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 15:40:55.617591"], ["updated_at", "2022-02-03 15:40:55.617591"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 10:40:55 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1402)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1440)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms | Allocations: 6589)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Create (0.5ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 15:51:50.655382"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 15:51:50.663927"], ["updated_at", "2022-02-03 15:51:50.663927"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 18:54:20.556671"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 18:54:20.557110"], ["updated_at", "2022-02-03 18:54:20.557110"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 14:22:54 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1418)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1456)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms | Allocations: 6604)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 14:34:54 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1418)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1456)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms | Allocations: 6605)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 19:41:19.866708"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 19:41:19.867125"], ["updated_at", "2022-02-03 19:41:19.867125"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:18:23.629488"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 20:18:23.630720"], ["updated_at", "2022-02-03 20:18:23.630720"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:18:23.650910"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 20:18:23.651108"], ["updated_at", "2022-02-03 20:18:23.651108"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:18:23.656782"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 20:18:23.657732"], ["updated_at", "2022-02-03 20:18:23.657732"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:18:33.732748"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 20:18:33.733922"], ["updated_at", "2022-02-03 20:18:33.733922"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:18:33.757043"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 20:18:33.757251"], ["updated_at", "2022-02-03 20:18:33.757251"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:18:33.762620"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 20:18:33.762808"], ["updated_at", "2022-02-03 20:18:33.762808"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:38:38.205308"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 20:38:38.205735"], ["updated_at", "2022-02-03 20:38:38.205735"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:39:31.131756"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 20:39:31.133163"], ["updated_at", "2022-02-03 20:39:31.133163"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.4ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.5ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:53:35.827168"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 20:53:35.828540"], ["updated_at", "2022-02-03 20:53:35.828540"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 20:58:12.877090"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 20:58:12.878162"], ["updated_at", "2022-02-03 20:58:12.878162"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:16:26.630092"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 21:16:26.631207"], ["updated_at", "2022-02-03 21:16:26.631207"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.2ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:20:36.484907"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 21:20:36.486147"], ["updated_at", "2022-02-03 21:20:36.486147"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:22:42.598201"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 21:22:42.599333"], ["updated_at", "2022-02-03 21:22:42.599333"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:23:41.796102"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 21:23:41.796534"], ["updated_at", "2022-02-03 21:23:41.796534"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:23:41.802495"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 21:23:41.803792"], ["updated_at", "2022-02-03 21:23:41.803792"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.4ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:40:23.200548"], ["air_temp", "44.21"], ["pressure", "54.32"], ["humidity", "67.87"], ["precipitation", "22.34"], ["wind_speed", "45.00"], ["created_at", "2022-02-03 21:40:23.200944"], ["updated_at", "2022-02-03 21:40:23.200944"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weathers/latest" for 127.0.0.1 at 2022-02-03 16:40:23 -0500
+Processing by WeathersController#latest as HTML
+  [1m[36mWeather Load (0.3ms)[0m  [1m[34mSELECT "weathers".* FROM "weathers" ORDER BY "weathers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering weathers/latest.html.erb within layouts/application
+  Rendered weathers/latest.html.erb within layouts/application (Duration: 0.7ms | Allocations: 445)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/nahid/Projects/RAILS/ackroo-weather/public/packs-test
+[Webpacker] Hash: 6c6c9a93163dd36fa158
+Version: webpack 4.46.0
+Time: 1547ms
+Built at: 02/03/2022 4:40:25 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0d4d7f9687ef222ade38.js   1.19 MiB  application  [emitted] [immutable]  application
+js/application-0d4d7f9687ef222ade38.js.map    1.2 MiB  application  [emitted] [dev]        application
+                             manifest.json  384 bytes               [emitted]              
+Entrypoint application = js/application-0d4d7f9687ef222ade38.js js/application-0d4d7f9687ef222ade38.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 569 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 66 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2402.7ms | Allocations: 9268)
+Completed 200 OK in 2411ms (Views: 2404.4ms | ActiveRecord: 0.3ms | Allocations: 11940)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeather Create (0.3ms)[0m  [1m[32mINSERT INTO "weathers" ("time", "air_temp", "pressure", "humidity", "precipitation", "wind_speed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["time", "2022-02-03 21:40:25.647235"], ["air_temp", "43.21"], ["pressure", "34.32"], ["humidity", "56.87"], ["precipitation", "38.34"], ["wind_speed", "76.98"], ["created_at", "2022-02-03 21:40:25.647459"], ["updated_at", "2022-02-03 21:40:25.647459"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m

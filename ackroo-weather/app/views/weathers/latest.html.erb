@@ -1,0 +1,41 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+
+<section class="container">
+  <h2>Weather in current location: Oshawa, Ontario, Canada, L1G, 5M5</h2>
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Air Temperature</th>
+      <th>Pressure</th>
+      <th>Humidity</th>
+      <th>Precipitation</th>
+      <th>Wind Speed</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% if @data[:weather].present? %>
+      <%# @data[:weather].each do |w| %>
+      <tr>
+        <td><%= @data[:weather]['time'] %></td>
+        <td><%= @data[:weather]['air_temp'] %></td>
+        <td><%= @data[:weather]['pressure'] %></td>
+        <td><%= @data[:weather]['humidity'] %></td>
+        <td><%= @data[:weather]['precipitation'] %></td>
+        <td><%= @data[:weather]['wind_speed'] %></td>
+      </tr>
+      <%# end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <br>
+  <br>
+
+</section>
